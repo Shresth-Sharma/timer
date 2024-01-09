@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0px;
+            background-color:black;
+            color:red;
+        }
+        p{
+            display:inline-block;
+            font-size:5vw;
+            margin:0px;
+        }
+        .up{
+            font-size:12vw;
+        }
+        #up1{
+            margin-left:15vw;
+            color:white;
+            text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white, 0 0 150px white;
+        }
+        .down{
+            font-size:10vw;
+        }
+        #tdays{
+            margin-left:5vw;
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red, 0 0 40px red, 0 0 70px red, 0 0 80px red, 0 0 100px red, 0 0 150px red;
+        }
+        #thours{
+            margin-left:5vw;
+            color:orangered;
+            text-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered, 0 0 40px orangered, 0 0 70px orangered, 0 0 80px orangered, 0 0 100px orangered, 0 0 150px orangered;
+        }
+        #tminutes{
+            margin-left:18vw;
+            color:orange;
+            text-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange, 0 0 40px orange, 0 0 70px orange, 0 0 80px orange, 0 0 100px orange, 0 0 150px orange;
+        }
+        #tseconds{
+            margin-left:13vw;
+            color:yellow;
+            text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 70px yellow, 0 0 80px yellow, 0 0 100px yellow, 0 0 150px yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="up1">
+        <p class="up" id="months"></p>
+        <p class="up" id="days"></p>
+        <p class="up" id="hours"></p>
+        <p class="up" id="minutes"></p>
+        <p class="up" id="seconds"></p>
+    </div>
+    <br>
+    <p class="down" id="tdays"></p>
+    <p class="down" id="thours"></p>
+    <br>
+    <p class="down" id="tminutes"></p>
+    <p class="down" id="tseconds"></p>
+    <script>
+        function open(){
+            const currentDate = new Date();
+            const month = currentDate.getMonth() + 1;
+            const day = currentDate.getDate();
+            const hour = currentDate.getHours();
+            const minute = currentDate.getMinutes();
+            const second = currentDate.getSeconds();
+            months = ((2-month))
+            days = (22-day)
+            hours = (11-hour)
+            minutes = (30-minute)
+            seconds = (60-second)
+            totaldays = days + (months*31) -1
+            totalhours = hours + (totaldays*24)
+            totalminutes = minutes + (totalhours*60)
+            totalseconds = seconds + (totalminutes*60)
+            months = ((2-month))
+            days = (21-day)
+            hours = (24-hour)+10
+            minutes = (60-minute)+30
+            seconds = (60-second)
+            document.getElementById('months').innerHTML = months+':';
+            document.getElementById('days').innerHTML = days+':';
+            document.getElementById('hours').innerHTML = hours+':';
+            document.getElementById('minutes').innerHTML = minutes+':';
+            document.getElementById('seconds').innerHTML = seconds;
+            document.getElementById('tdays').innerHTML = totaldays+' Days';
+            document.getElementById('thours').innerHTML = totalhours+' Hours';
+            document.getElementById('tminutes').innerHTML = totalminutes+' Minutes';
+            document.getElementById('tseconds').innerHTML = totalseconds+' Seconds';
+        }
+        setInterval(open, 500)
+    </script>
+</body>
+</html>
